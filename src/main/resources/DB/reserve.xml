@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reserve">
+	<select id="getReserve" parameterType="String" resultType="test.dto.ReserveDTO">
+		<!-- select * from reserve where userid = #{userid} order by Reserve_Date desc  -->
+		select * from (select A.E_name, B.userid, B.reserve_date from restaurant A, reserve B where A.RESTAURANT_NUMBER = B.RESTAURANT_NUMBER ) V where V.userid = #{userid} order by Reserve_Date desc
+	</select>
+</mapper>

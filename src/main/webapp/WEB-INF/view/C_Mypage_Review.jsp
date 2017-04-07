@@ -27,10 +27,12 @@
 					<td>${reviewList.e_name}</td>
 					<td>${reviewList.comments}</td>
 					<td><input type="button" value="Modify"></td>
-					<td><input type="button" value="Delete" OnClick="window.location='/Bchan_test/Review_Delete.do?comments=${reviewList.comments}&&userid=${reviewList.userid}&&write_date=${write_date}'"></td>
+					<td>
+						<a href="C_Review_Delete.do?comments=${reviewList.comments}&&userid=${reviewList.userid}&&write_date=${write_date}">Delete</a>
+					</td>
 				</tr>
 		</c:forEach>
 	</table>
-	<input type="button" value="마이페이지" OnClick="window.location='/Bchan_test/Mypage_Main.do'"><br/>
+	<a href="C_Mypage_Main.do">고객 마이페이지</a><br/>
 </body>
 </html>

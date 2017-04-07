@@ -9,7 +9,22 @@ public class ReserveDTO {
 	private String userid;
 	private String deposit;
 	private String e_name;
+	private int r_state;
+	private int teamCount;
 	
+	
+	public int getTeamCount() {
+		return teamCount;
+	}
+	public void setTeamCount(int teamCount) {
+		this.teamCount = teamCount;
+	}
+	public int getR_state() {
+		return r_state;
+	}
+	public void setR_state(int r_state) {
+		this.r_state = r_state;
+	}
 	public String getE_name() {
 		return e_name;
 	}
@@ -43,8 +58,9 @@ public class ReserveDTO {
 	
 	@Override
 	public String toString() {
-		return "[사업자 등록 번호 = " + restaurant_number + ", 예약시간 = " + reserve_date + ", 고객ID = "
-				+ userid + ", 예약금 = " + deposit + "]";
+		return "ReserveDTO [restaurant_number=" + restaurant_number + ", reserve_date=" + reserve_date + ", userid="
+				+ userid + ", deposit=" + deposit + ", e_name=" + e_name + ", r_state=" + r_state + ", teamCount="
+				+ teamCount + "]";
 	}
 
 }

@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="zipcode">
 
 	<select id="getList" parameterType="String" resultType="test.dto.ZipcodeDTO">
-		select * from zipcode where area4 like %#{area4}%
+		select * from zipcode where area4 like '%'||#{area4}||'%'
 	</select>
 
 </mapper>

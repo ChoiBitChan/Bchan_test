@@ -20,18 +20,18 @@
 
 	업체정보 페이지<br/>
 	
-	<form action="E_insertInfo.do" method="post" enctype="multipart/form-data">
-		우편번호 : <input type="text" id="zipcode"><input type="button" value="우편번호찾기" onClick="findZipcode()">
+	<form name="enterInfo" action="E_insertInfo.do" method="post" enctype="multipart/form-data">
+		우편번호 : <input type="text" name="zipcode"><input type="button" value="우편번호찾기" onClick="findZipcode()">
 		<br/>
-		주소 : <input type="text" id="address">
+		주소 : <input type="text" name="address" size="50" maxlength="50">
 		<br/>
-		수용 가능 Team : <input type="text" id="teamCount">
+		수용 가능 Team : <input type="text" name="teamCount">
 		<br/>
-		업체명 : <input type="text" id="e_name">
+		업체명 : <input type="text" name="e_name">
 		<br/>
-		업체 소개 : <input type="text" id="r_info">
+		업체 소개 : <input type="text" name="r_info">
 		<br/>
-		영업 시간 : <input type="text" id="r_time">
+		영업 시간 : <input type="text" name="r_time">
 		<br/>
 		Main 이미지 : 
 		<br/>

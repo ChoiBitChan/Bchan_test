@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import test.dao.E_MypageDAO;
 import test.dto.ReserveDTO;
+import test.dto.ZipcodeDTO;
 
 @Controller
 public class E_MypageController {
@@ -76,8 +77,15 @@ public class E_MypageController {
 	}
 	
 	@RequestMapping("/findZipcode.do")
-	public String findZipcode() {
-		return "findZipcode";
+	public ModelAndView findZipcode(@RequestParam(value="area4", defaultValue="a") String area4) {
+		System.out.println("findZipcode");
+		System.out.println(area4);
+		ModelAndView mav = new ModelAndView("findZipcode");
+		
+		List<ZipcodeDTO> zipCodeList = new ArrayList<ZipcodeDTO>();
+		zipCodeList = e_mypageDAO.zipcodeRead(area4);
+		mav.addObject("zipCodeList", zipCodeList);
+		return mav;
 	}
 	
 	

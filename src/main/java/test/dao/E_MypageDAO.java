@@ -34,9 +34,8 @@ public class E_MypageDAO extends SqlSessionDaoSupport {
 	}
 	
 	public List<ZipcodeDTO> zipcodeRead(String area4) {
-		
-		List<ZipcodeDTO> zipCodeList = new ArrayList<ZipcodeDTO>();
-		zipCodeList = getSqlSession().selectList("zipcode.getList", area4);
+		System.out.println(area4);
+		List<ZipcodeDTO> zipCodeList = getSqlSession().selectList("zipcode.getList", area4);
 		return zipCodeList;
 		
 	}

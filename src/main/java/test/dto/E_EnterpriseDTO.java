@@ -5,7 +5,7 @@ public class E_EnterpriseDTO {
 	String restaurant_number;
 	String e_name;
 	String address;
-	String tableCount;
+	String teamCount;
 	String type;
 	String pay_key;
 	String r_info;
@@ -32,10 +32,10 @@ public class E_EnterpriseDTO {
 		this.address = address;
 	}
 	public String getTableCount() {
-		return tableCount;
+		return teamCount;
 	}
-	public void setTableCount(String tableCount) {
-		this.tableCount = tableCount;
+	public void setTableCount(String teamCount) {
+		this.teamCount = teamCount;
 	}
 	public String getType() {
 		return type;

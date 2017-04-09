@@ -10,6 +10,11 @@ public class ZipcodeDTO {
 	
 	
 	
+	@Override
+	public String toString() {
+		return "ZipcodeDTO [zipcode=" + zipcode + ", area1=" + area1 + ", area2=" + area2 + ", area3=" + area3
+				+ ", area4=" + area4 + "]";
+	}
 	public String getZipcode() {
 		return zipcode;
 	}

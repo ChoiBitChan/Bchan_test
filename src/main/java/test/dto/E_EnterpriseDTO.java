@@ -1,18 +1,69 @@
 package test.dto;
 
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class E_EnterpriseDTO {
 	
-	String restaurant_number;
-	String e_name;
-	String address;
-	String teamCount;
-	String type;
-	String pay_key;
-	String r_info;
-	String locationX;
-	String locationY;
+	private String restaurant_number;
+	private String e_name;
+	private String address;
+	private String teamCount;
+	private String type;
+	private String pay_key;
+	private String r_info;
+	private String r_time;
+	private int openingTime;
+	private int closingTime;
+	private MultipartFile main_image;
+	private MultipartFile detail_image;
+	private MultipartFile menu_image;
 	
 	
+	
+	
+	public int getOpeningTime() {
+		return openingTime;
+	}
+	public void setOpeningTime(int openingTime) {
+		this.openingTime = openingTime;
+	}
+	public int getClosingTime() {
+		return closingTime;
+	}
+	public void setClosingTime(int closingTime) {
+		this.closingTime = closingTime;
+	}
+	public MultipartFile getMain_image() {
+		return main_image;
+	}
+	public void setMain_image(MultipartFile main_image) {
+		this.main_image = main_image;
+	}
+	public MultipartFile getDetail_image() {
+		return detail_image;
+	}
+	public void setDetail_image(MultipartFile detail_image) {
+		this.detail_image = detail_image;
+	}
+	public MultipartFile getMenu_image() {
+		return menu_image;
+	}
+	public void setMenu_image(MultipartFile menu_image) {
+		this.menu_image = menu_image;
+	}
+	public String getTeamCount() {
+		return teamCount;
+	}
+	public void setTeamCount(String teamCount) {
+		this.teamCount = teamCount;
+	}
+	public String getR_time() {
+		return r_time;
+	}
+	public void setR_time(String r_time) {
+		this.r_time = r_time;
+	}
 	public String getRestaurant_number() {
 		return restaurant_number;
 	}
@@ -30,12 +81,6 @@ public class E_EnterpriseDTO {
 	}
 	public void setAddress(String address) {
 		this.address = address;
-	}
-	public String getTableCount() {
-		return teamCount;
-	}
-	public void setTableCount(String teamCount) {
-		this.teamCount = teamCount;
 	}
 	public String getType() {
 		return type;
@@ -55,19 +100,13 @@ public class E_EnterpriseDTO {
 	public void setR_info(String r_info) {
 		this.r_info = r_info;
 	}
-	public String getLocationX() {
-		return locationX;
-	}
-	public void setLocationX(String locationX) {
-		this.locationX = locationX;
-	}
-	public String getLocationY() {
-		return locationY;
-	}
-	public void setLocationY(String locationY) {
-		this.locationY = locationY;
-	}
 	
-	
+	@Override
+	public String toString() {
+		return "E_EnterpriseDTO [restaurant_number=" + restaurant_number + ", e_name=" + e_name + ", address=" + address
+				+ ", teamCount=" + teamCount + ", type=" + type + ", pay_key=" + pay_key + ", r_info=" + r_info
+				+ ", r_time=" + r_time + ", openingTime=" + openingTime + ", closingTime=" + closingTime
+				+ ", main_image=" + main_image + ", detail_image=" + detail_image + ", menu_image=" + menu_image + "]";
+	}
 
 }

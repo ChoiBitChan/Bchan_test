@@ -2,11 +2,11 @@ package test.dto;
 
 public class E_OwnerDTO {
 	
-	String restaurant_number;
-	String userid;
-	String password;
-	String mobile;
-	String email;
+	private String restaurant_number;
+	private String userid;
+	private String password;
+	private String mobile;
+	private String email;
 	
 	
 	public String getRestaurant_number() {

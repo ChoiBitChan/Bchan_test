@@ -19,7 +19,6 @@
 				document.zipForm.area4.focus();
 				return;
 			}
-			alert(document.zipForm.area4.value);
 			document.zipForm.submit();
 		}
 		

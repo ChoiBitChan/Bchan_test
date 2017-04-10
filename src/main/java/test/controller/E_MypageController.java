@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import test.dao.E_MypageDAO;
+import test.dto.E_EnterpriseDTO;
 import test.dto.ReserveDTO;
 import test.dto.ZipcodeDTO;
 
@@ -29,7 +30,7 @@ public class E_MypageController {
 	public void setMypageDAO(E_MypageDAO e_mypageDAO) {
 		this.e_mypageDAO = e_mypageDAO;
 	}
-	
+
 	@RequestMapping("/E_Mypage_Main.do")
 	public String mypage_main() {
 		System.out.println("E_Main page");
@@ -70,10 +71,16 @@ public class E_MypageController {
 	
 	
 	
+	
+	
+	
 	@RequestMapping("/E_Mypage_EnterInfo.do")
-	public String insertEnterInfo(){
-		System.out.println("E_insertInfo");
-		return "E_Mypage_EnterInfo";
+	public ModelAndView mypage_enterInfo() {
+		
+		ModelAndView mav = new ModelAndView("E_Mypage_EnterInfo");
+		String e_num = e_mypageDAO.getE_info("ea1");
+		mav.addObject("restaurant_number", e_num);
+		return mav;
 	}
 	
 	@RequestMapping("/findZipcode.do")
@@ -85,6 +92,18 @@ public class E_MypageController {
 		List<ZipcodeDTO> zipCodeList = new ArrayList<ZipcodeDTO>();
 		zipCodeList = e_mypageDAO.zipcodeRead(area4);
 		mav.addObject("zipCodeList", zipCodeList);
+		return mav;
+	}
+	
+	@RequestMapping("/E_insertInfo.do")
+	public ModelAndView insertEnterInfo(E_EnterpriseDTO enterDTO) {
+		System.out.println("insertEnter");
+		e_mypageDAO.upload(enterDTO.getMain_image(), enterDTO.getE_name());
+		e_mypageDAO.upload(enterDTO.getDetail_image(), enterDTO.getE_name());
+		e_mypageDAO.upload(enterDTO.getMenu_image(), enterDTO.getE_name());
+		e_mypageDAO.insertEnterInfo(enterDTO);
+		ModelAndView mav = new ModelAndView("test");
+		mav.addObject("enterDTO", enterDTO);
 		return mav;
 	}
 	

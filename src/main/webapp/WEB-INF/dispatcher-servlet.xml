@@ -16,6 +16,8 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
 	<bean id="c_mypageDAO" class="test.dao.C_MypageDAO">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
@@ -23,5 +25,6 @@
 	<bean id="e_mypageDAO" class="test.dao.E_MypageDAO">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
+	
 	
 </beans>

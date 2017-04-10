@@ -5,6 +5,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="file">
 	<insert id="addFile" parameterType="test.dto.FileInfoDTO">
-		insert into filesave values (#{originalFilename},#{filePath},#{fileSize})
+		insert into restaurant_imagesave values (#{originalFilename},#{filePath},#{fileSize})
 	</insert>	
 </mapper>

@@ -2,6 +2,8 @@ package test.dto;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ReviewDTO {
 	
 	private String restaurant_number;
@@ -9,11 +11,17 @@ public class ReviewDTO {
 	private Date write_date;
 	private String comments;
 	private int ranking;
-	private String review_filePath;
 	private String userid;
 	private String e_name;
+	private MultipartFile review_image;
 	
 	
+	public MultipartFile getReview_image() {
+		return review_image;
+	}
+	public void setReview_image(MultipartFile review_image) {
+		this.review_image = review_image;
+	}
 	public String getUserid() {
 		return userid;
 	}
@@ -56,18 +64,7 @@ public class ReviewDTO {
 	public void setRanking(int ranking) {
 		this.ranking = ranking;
 	}
-	public String getReview_filePath() {
-		return review_filePath;
-	}
-	public void setReview_filePath(String review_filePath) {
-		this.review_filePath = review_filePath;
-	}
 	
-	@Override
-	public String toString() {
-		return "ReviewDTO [restaurant_number=" + restaurant_number + ", reserve_date=" + reserve_date + ", write_date="
-				+ write_date + ", comments=" + comments + ", ranking=" + ranking + ", review_filePath="
-				+ review_filePath + "]";
-	}
+	
 	
 }

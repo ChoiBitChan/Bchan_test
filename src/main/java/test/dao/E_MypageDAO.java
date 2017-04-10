@@ -54,21 +54,21 @@ public class E_MypageDAO extends SqlSessionDaoSupport {
 		getSqlSession().insert("enterInfo.insertE_Info", enterInfo);
 	}
 	
-	public void upload(MultipartFile emage, String e_name) {
+	public void upload(MultipartFile image, String e_name) {
 		System.out.println("upload");
 		long now = System.currentTimeMillis();
 		Random r = new Random();
 		int i = r.nextInt(50);
 		String name = e_name + "_" + now + "_" + i;
-		String ori_name = emage.getOriginalFilename();
-		File new_file = new File("f://upload//" + name + "_" + ori_name);
+		String ori_name = image.getOriginalFilename();
+		File new_file = new File("f://E_image//" + name + "_" + ori_name);
 		System.out.println(new_file);
 		try {
-			emage.transferTo(new_file);
+			image.transferTo(new_file);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		FileInfoDTO f = new FileInfoDTO(emage.getOriginalFilename(), new_file.getPath(), emage.getSize());
+		FileInfoDTO f = new FileInfoDTO(image.getOriginalFilename(), new_file.getPath(), image.getSize());
 		getSqlSession().insert("file.addFile", f);
 	}
 

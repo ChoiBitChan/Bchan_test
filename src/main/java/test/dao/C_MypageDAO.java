@@ -1,12 +1,16 @@
 package test.dao;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.web.multipart.MultipartFile;
 
 import test.dto.C_CustomerDTO;
+import test.dto.FileInfoDTO;
 import test.dto.ReserveDTO;
 import test.dto.ReviewDTO;
 
@@ -38,6 +42,24 @@ public class C_MypageDAO extends SqlSessionDaoSupport {
 	
 	public void modifyInfo(C_CustomerDTO userInfo) {
 		getSqlSession().update("userInfo.modifyInfo", userInfo);
+	}
+	
+	public void upload(MultipartFile image, String userid) {
+		System.out.println("upload");
+		long now = System.currentTimeMillis();
+		Random r = new Random();
+		int i = r.nextInt(50);
+		String name = userid + "_" + now + "_" + i;
+		String ori_name = image.getOriginalFilename();
+		File new_file = new File("f://E_image//" + name + "_" + ori_name);
+		System.out.println(new_file);
+		try {
+			image.transferTo(new_file);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		FileInfoDTO f = new FileInfoDTO(image.getOriginalFilename(), new_file.getPath(), image.getSize());
+		getSqlSession().insert("file.addFile", f);
 	}
 
 }

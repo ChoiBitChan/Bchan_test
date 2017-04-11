@@ -1,6 +1,6 @@
-package test.dto;
+package sns.dto;
 
-public class E_OwnerDTO {
+public class OwnerDTO {
 	
 	private String restaurant_number;
 	private String userid;

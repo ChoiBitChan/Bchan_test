@@ -9,11 +9,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select restaurant_number from owner where userid = #{userid}
 	</select>
 	
-	<insert id="insertE_Info" parameterType="test.dto.E_EnterpriseDTO">
+	<insert id="insertE_Info" parameterType="sns.dto.EnterpriseDTO">
 		insert into restaurant values(#{restaurant_number}, #{e_name}, #{address}, #{teamCount}, #{type}, #{pay_key}, #{r_info}, #{r_time}, #{openingTime}, #{closingTime})
 	</insert>
 	
-	<update id="updateE_Info" parameterType="test.dto.E_EnterpriseDTO">
+	<update id="updateE_Info" parameterType="sns.dto.EnterpriseDTO">
 		update 
 	</update>
 

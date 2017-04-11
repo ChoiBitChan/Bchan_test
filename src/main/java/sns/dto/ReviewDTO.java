@@ -1,4 +1,4 @@
-package test.dto;
+package sns.dto;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package test.dao;
+package sns.dao;
 
 import java.io.File;
 import java.util.HashMap;
@@ -9,10 +9,10 @@ import java.util.Random;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.web.multipart.MultipartFile;
 
-import test.dto.C_CustomerDTO;
-import test.dto.FileInfoDTO;
-import test.dto.ReserveDTO;
-import test.dto.ReviewDTO;
+import sns.dto.CustomerDTO;
+import sns.dto.FileInfoDTO;
+import sns.dto.ReserveDTO;
+import sns.dto.ReviewDTO;
 
 public class C_MypageDAO extends SqlSessionDaoSupport {
 	
@@ -35,12 +35,12 @@ public class C_MypageDAO extends SqlSessionDaoSupport {
 		getSqlSession().delete("review.c_deleteReview", reviewDto);
 	}
 	
-	public C_CustomerDTO getInfo(String userid) {
-		C_CustomerDTO userInfo = getSqlSession().selectOne("userInfo.getInfo", userid);
+	public CustomerDTO getInfo(String userid) {
+		CustomerDTO userInfo = getSqlSession().selectOne("userInfo.getInfo", userid);
 		return userInfo;
 	}
 	
-	public void modifyInfo(C_CustomerDTO userInfo) {
+	public void modifyInfo(CustomerDTO userInfo) {
 		getSqlSession().update("userInfo.modifyInfo", userInfo);
 	}
 	

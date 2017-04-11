@@ -1,4 +1,4 @@
-package test.dao;
+package sns.dao;
 
 import java.io.File;
 import java.util.HashMap;
@@ -9,10 +9,10 @@ import java.util.Random;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.web.multipart.MultipartFile;
 
-import test.dto.E_EnterpriseDTO;
-import test.dto.FileInfoDTO;
-import test.dto.ReserveDTO;
-import test.dto.ZipcodeDTO;
+import sns.dto.EnterpriseDTO;
+import sns.dto.FileInfoDTO;
+import sns.dto.ReserveDTO;
+import sns.dto.ZipcodeDTO;
 
 public class E_MypageDAO extends SqlSessionDaoSupport {
 	
@@ -50,7 +50,7 @@ public class E_MypageDAO extends SqlSessionDaoSupport {
 		
 	}
 	
-	public void insertEnterInfo(E_EnterpriseDTO enterInfo) {
+	public void insertEnterInfo(EnterpriseDTO enterInfo) {
 		getSqlSession().insert("enterInfo.insertE_Info", enterInfo);
 	}
 	

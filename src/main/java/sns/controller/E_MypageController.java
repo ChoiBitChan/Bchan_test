@@ -1,4 +1,4 @@
-package test.controller;
+package sns.controller;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import test.dao.E_MypageDAO;
-import test.dto.E_EnterpriseDTO;
-import test.dto.ReserveDTO;
-import test.dto.ZipcodeDTO;
+import sns.dao.E_MypageDAO;
+import sns.dto.EnterpriseDTO;
+import sns.dto.ReserveDTO;
+import sns.dto.ZipcodeDTO;
 
 @Controller
 public class E_MypageController {
@@ -96,7 +96,7 @@ public class E_MypageController {
 	}
 	
 	@RequestMapping("/E_insertInfo.do")
-	public ModelAndView insertEnterInfo(E_EnterpriseDTO enterDTO) {
+	public ModelAndView insertEnterInfo(EnterpriseDTO enterDTO) {
 		System.out.println("insertEnter");
 		e_mypageDAO.upload(enterDTO.getMain_image(), enterDTO.getE_name());
 		e_mypageDAO.upload(enterDTO.getDetail_image(), enterDTO.getE_name());

@@ -1,9 +1,9 @@
-package test.dto;
+package sns.dto;
 
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class E_EnterpriseDTO {
+public class EnterpriseDTO {
 	
 	private String restaurant_number;
 	private String e_name;

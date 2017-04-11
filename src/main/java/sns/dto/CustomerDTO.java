@@ -1,6 +1,6 @@
-package test.dto;
+package sns.dto;
 
-public class C_CustomerDTO {
+public class CustomerDTO {
 	
 	private String userid;
 	private String password;

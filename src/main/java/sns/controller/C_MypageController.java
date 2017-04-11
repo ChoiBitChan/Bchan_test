@@ -101,6 +101,13 @@ public class C_MypageController {
 		return mav;
 	}
 	
+	@RequestMapping("/writeForm.do")
+	public ModelAndView writeForm(@RequestParam("restaurant_number") String restaurant_number) {
+		ModelAndView mav = new ModelAndView("C_Mypage_ReviewForm");
+		mav.addObject("restaurant_number", restaurant_number);
+		return mav;
+	}
+	
 	@RequestMapping("/C_Review_Delete.do")
 	public String review_delete(ReviewDTO reviewDto, BindingResult result){
 		System.out.println("review_delete");

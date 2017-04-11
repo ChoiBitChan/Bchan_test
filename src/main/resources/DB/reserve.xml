@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="reserve">
 	<select id="c_getReserve" parameterType="String" resultType="sns.dto.ReserveDTO">
 		<!-- select * from reserve where userid = #{userid} order by Reserve_Date desc  -->
-		select T.* from ( select V.*, rownum as rno from ( select A.E_name, B.userid, B.reserve_date, B.r_state from restaurant A, reserve B where A.RESTAURANT_NUMBER = B.RESTAURANT_NUMBER order by B.reserve_date desc ) V where V.userid = #{userid} ) T where T.rno between 1 and #{end_rno}
+		select T.* from ( select V.*, rownum as rno from ( select A.E_name, A.restaurant_number, B.userid, B.reserve_date, B.r_state from restaurant A, reserve B where A.RESTAURANT_NUMBER = B.RESTAURANT_NUMBER order by B.reserve_date desc ) V where V.userid = #{userid} ) T where T.rno between 1 and #{end_rno}
 	</select>
 	
 	<select id="e_getReserve" parameterType="String" resultType="sns.dto.ReserveDTO">

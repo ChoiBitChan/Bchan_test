@@ -5,6 +5,7 @@
 <html>
 <head>
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
 	
@@ -46,16 +47,48 @@
 						</c:if>
 					</td>
 					<td>
-					
+						<!-- 
 						<a href="E_reserveOk.do?restaurant_number=${reserveList.restaurant_number}&userid=${reserveList.userid}&reserve_date=${reserve_date}">승인</a>
 						
 						<a href="E_reserveCancel.do?restaurant_number=${reserveList.restaurant_number}&userid=${reserveList.userid}&reserve_date=${reserve_date}">취소</a>
-					
+						 -->
+						<form name="form_reserveCheck">
+							<input type="hidden" name="restaurant_number" value="${reserveList.restaurant_number}">
+							<input type="hidden" name="userid" value="${reserveList.userid}">
+							<input type="hidden" name="reserve_date" value="${reserve_date}">
+							<input type="button" value="승인" name="btn_reserveOk">
+							<input type="button" value="취소" name="btn_reserveCancel">
+						</form>
+						
 					</td>
 				</tr>
 			</c:if>
 		</c:forEach>
 	</table>
-	<a href="E_Mypage_Main.do">업주 마이페이지</a><br/>
+	
+	<script type="text/javascript">
+	
+		$('[name="btn_reserveOk"]').on('click',function(){
+			
+			var restaurant_number = document.forms["form_reserveCheck"]["restaurant_number"].value
+			var userid = document.forms["form_reserveCheck"]["userid"].value
+			var reserve_date = document.forms["form_reserveCheck"]["reserve_date"].value
+			
+			var test = restaurant_number +" "+ userid +" "+ reserve_date
+			
+			alert(test)
+			
+			
+		})
+	
+	
+	
+	
+	
+	</script>
+	
+	
+	
+	
 </body>
 </html>

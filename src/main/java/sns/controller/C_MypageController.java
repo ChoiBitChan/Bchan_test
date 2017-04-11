@@ -41,24 +41,15 @@ public class C_MypageController {
 	
 	
 	@RequestMapping("/C_Mypage_Reserve.do")
-	public ModelAndView mypage_reserve(@RequestParam(value="end_rno", defaultValue="20") String end_rno) {
+	public ModelAndView mypage_reserve(@RequestParam(value="end_rno", defaultValue="10") String end_rno) {
 		System.out.println("Reserve page");
+		System.out.println(end_rno);
 		ModelAndView mav = new ModelAndView("C_Mypage_Reserve");
 		
 		List<ReserveDTO> list = new ArrayList<ReserveDTO>();
 		list = c_mypageDAO.getReserveList("a", end_rno);
 		mav.addObject("reserveList", list);
-		return mav;
-	}
-	
-	@RequestMapping("/C_More_Reserve.do")
-	public ModelAndView more_reserve(@RequestParam(value="end_rno", defaultValue="20") String end_rno) {
-		
-		ModelAndView mav = new ModelAndView("C_Reserve_TBody");
-		
-		List<ReserveDTO> list = new ArrayList<ReserveDTO>();
-		list = c_mypageDAO.getReserveList("a", end_rno);
-		mav.addObject("reserveList", list);
+		mav.addObject("end_rno", end_rno);
 		return mav;
 	}
 	

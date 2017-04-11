@@ -33,6 +33,5 @@
 				</tr>
 		</c:forEach>
 	</table>
-	<a href="C_Mypage_Main.do">고객 마이페이지</a><br/>
 </body>
 </html>

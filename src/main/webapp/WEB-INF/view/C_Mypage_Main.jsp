@@ -23,7 +23,7 @@
 	$('#btn_c_reserve').on('click',function(){
 		
 		var url = "C_Mypage_Reserve.do"
-		var query = "dup=userid"
+		var query = "test=test"
 		
 		$.ajax({
 			
@@ -48,7 +48,7 @@
 	$('#btn_c_userInfo').on('click',function(){
 		
 		var url = "C_Mypage_UserInfo.do"
-		var query = "dup=userid"
+		var query = "test=test"
 		
 		$.ajax({
 			
@@ -73,7 +73,7 @@
 	$('#btn_c_review').on('click',function(){
 		
 		var url = "C_Mypage_Review.do"
-		var query = "dup=userid"
+		var query = "test=test"
 		
 		$.ajax({
 			

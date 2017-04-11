@@ -5,6 +5,7 @@
 <html>
 <head>
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 
 	function writeForm(restaurant_number) {
@@ -18,7 +19,7 @@
 <body>
 	<jsp:useBean id="toDay" class="java.util.Date"/>
 	예약 현황<br/>
-	<table border="1">
+	<table border="1" id="tbl_reserve">
 		<tr>
 			<td>예약일자</td>
 			<td>업체명</td>
@@ -67,8 +68,41 @@
 				</tr>
 		</c:forEach>
 	</table>
+	<input type="button" value="더 보기" id="btn_more">
+	
+	<script type="text/javascript">
+		
+		var end_rno = ${end_rno}
+	
+		$('#btn_more').on('click',function(){
+			
+			end_rno += 10
+			var url = "C_Mypage_Reserve.do"
+			var query = "end_rno="+end_rno
+			
+			$.ajax({
+			
+				type:"GET"
+				,url:url
+				,data:query
+				,success:function(data){
+					
+					$('#divBox').html("");
+					$('#divBox').append(data);
+					
+				}
+			
+				,error:function(e){
+					console.log(e.responseText);
+				}
+				
+			})
+			
+		})
+		
+	
+	</script>	
 	
 	
-	<a href="C_Mypage_Main.do">고객 마이페이지</a><br/>
 </body>
 </html>

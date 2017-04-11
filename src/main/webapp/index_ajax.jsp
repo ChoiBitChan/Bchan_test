@@ -20,7 +20,7 @@
 		
 		
 		var url = "C_Mypage_Main.do"
-		var query = "dup=userid"
+		var query = "test=test"
 		
 		$.ajax({
 			
@@ -47,7 +47,7 @@
 		
 		
 		var url = "E_Mypage_Main.do"
-		var query = "dup=userid"
+		var query = "test=test"
 		
 		$.ajax({
 			

@@ -24,7 +24,7 @@
 	$('#btn_e_reserve').on('click',function(){
 		
 		var url = "E_Mypage_Reserve.do"
-		var query = "dup=userid"
+		var query = "test=test"
 		
 		$.ajax({
 			
@@ -49,7 +49,7 @@
 	$('#btn_e_userInfo').on('click',function(){
 		
 		var url = "E_Mypage_EnterInfo.do"
-		var query = "dup=userid"
+		var query = "test=test"
 		
 		$.ajax({
 			
@@ -74,7 +74,7 @@
 	$('#btn_e_review').on('click',function(){
 		
 		var url = "E_Mypage_Review.do"
-		var query = "dup=userid"
+		var query = "test=test"
 		
 		$.ajax({
 			

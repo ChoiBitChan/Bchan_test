@@ -1,12 +1,12 @@
-package test.dto;
+package sns.dto;
 
-public class C_CustomerDTO {
+public class CustomerDTO {
 	
-	String userid;
-	String password;
-	String name;
-	String email;
-	String mobile;
+	private String userid;
+	private String password;
+	private String name;
+	private String email;
+	private String mobile;
 	
 	
 	public String getUserid() {

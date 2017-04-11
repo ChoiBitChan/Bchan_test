@@ -1,4 +1,4 @@
-package test.controller;
+package sns.controller;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import test.dao.C_MypageDAO;
-import test.dto.C_CustomerDTO;
-import test.dto.ReserveDTO;
-import test.dto.ReviewDTO;
+import sns.dao.C_MypageDAO;
+import sns.dto.CustomerDTO;
+import sns.dto.ReserveDTO;
+import sns.dto.ReviewDTO;
 
 @Controller
 public class C_MypageController {
@@ -70,7 +70,7 @@ public class C_MypageController {
 		System.out.println("UserInfo page");
 		ModelAndView mav = new ModelAndView("C_Mypage_UserInfo");
 		
-		C_CustomerDTO userInfo = new C_CustomerDTO();
+		CustomerDTO userInfo = new CustomerDTO();
 		userInfo = c_mypageDAO.getInfo("a");
 		mav.addObject("userInfo", userInfo);
 		
@@ -78,7 +78,7 @@ public class C_MypageController {
 	}
 	
 	@RequestMapping("/C_modifyInfo.do")
-	public String modifyInfo(C_CustomerDTO userInfo, BindingResult result) {
+	public String modifyInfo(CustomerDTO userInfo, BindingResult result) {
 		System.out.println("modifyInfo");
 		System.out.println(userInfo.getUserid());
 		System.out.println(userInfo.getName());
@@ -98,6 +98,13 @@ public class C_MypageController {
 		List<ReviewDTO> list = new ArrayList<ReviewDTO>();
 		list = c_mypageDAO.getReviewList("a");
 		mav.addObject("reviewList", list);
+		return mav;
+	}
+	
+	@RequestMapping("/writeForm.do")
+	public ModelAndView writeForm(@RequestParam("restaurant_number") String restaurant_number) {
+		ModelAndView mav = new ModelAndView("C_Mypage_ReviewForm");
+		mav.addObject("restaurant_number", restaurant_number);
 		return mav;
 	}
 	

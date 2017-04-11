@@ -4,21 +4,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="reserve">
-	<select id="c_getReserve" parameterType="String" resultType="test.dto.ReserveDTO">
+	<select id="c_getReserve" parameterType="String" resultType="sns.dto.ReserveDTO">
 		<!-- select * from reserve where userid = #{userid} order by Reserve_Date desc  -->
-		select T.* from ( select V.*, rownum as rno from ( select A.E_name, B.userid, B.reserve_date, B.r_state from restaurant A, reserve B where A.RESTAURANT_NUMBER = B.RESTAURANT_NUMBER order by B.reserve_date desc ) V where V.userid = #{userid} ) T where T.rno between 1 and #{end_rno}
+		select T.* from ( select V.*, rownum as rno from ( select A.E_name, A.restaurant_number, B.userid, B.reserve_date, B.r_state from restaurant A, reserve B where A.RESTAURANT_NUMBER = B.RESTAURANT_NUMBER order by B.reserve_date desc ) V where V.userid = #{userid} ) T where T.rno between 1 and #{end_rno}
 	</select>
 	
-	<select id="e_getReserve" parameterType="String" resultType="test.dto.ReserveDTO">
+	<select id="e_getReserve" parameterType="String" resultType="sns.dto.ReserveDTO">
 		<!-- select * from reserve where userid = #{userid} order by Reserve_Date desc  -->
-		select T.* from ( select V.*, rownum as rno from ( select A.E_name, A.restaurant_number, B.teamCount, B.userid, B.reserve_date, B.R_state from restaurant A, reserve B where A.restaurant_number = B.restaurant_number order by B.reserve_date desc ) V where V.restaurant_number = #{restaurant_number} ) T where T.rno between 1 and #{end_rno}
+		select T.* from ( select V.*, rownum as rno from ( select A.E_name, A.restaurant_number, B.guestCount, B.userid, B.reserve_date, B.R_state from restaurant A, reserve B where A.restaurant_number = B.restaurant_number order by B.reserve_date desc ) V where V.restaurant_number = #{restaurant_number} ) T where T.rno between 1 and #{end_rno}
 	</select>
 	
-	<update id="e_reserveOk" parameterType="test.dto.ReserveDTO">
+	<update id="e_reserveOk" parameterType="sns.dto.ReserveDTO">
 		update reserve set r_state = '2' where restaurant_number = #{restaurant_number} and userid = #{userid} and reserve_date = #{reserve_date}
 	</update>
 	
-	<update id="e_reserveCancel" parameterType="test.dto.ReserveDTO">
+	<update id="e_reserveCancel" parameterType="sns.dto.ReserveDTO">
 		update reserve set r_state = '4' where restaurant_number = #{restaurant_number} and userid = #{userid} and reserve_date = #{reserve_date}
 	</update>
 	

@@ -5,6 +5,15 @@
 <html>
 <head>
 <title>Insert title here</title>
+<script type="text/javascript">
+
+	function writeForm(restaurant_number) {
+		url = "writeForm.do?restaurant_number="+restaurant_number;
+		window.open(url,"post","toolbar=no ,width=350 ,height=600 ,directories=no,status=yes,scrollbars=yes,menubar=no");
+	}
+	
+</script>
+
 </head>
 <body>
 	<jsp:useBean id="toDay" class="java.util.Date"/>
@@ -51,7 +60,7 @@
 						<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
 						<c:if test="${reDay.time - toDay.time < 0}">	
 							<c:if test="${reDay.time - toDay.time > -3*(1000*60*60*24)}">
-								<input type="button" value="Write">
+								<input type="button" value="Write" id="btn_write" onclick="writeForm('${reserveList.restaurant_number}')">
 							</c:if>
 						</c:if>
 					</td>

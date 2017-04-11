@@ -1,7 +1,7 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="test.dto.ZipcodeDTO"%>
+<%@page import="sns.dto.ZipcodeDTO"%>
 <%@page import="java.util.List"%>
-<%@page import="test.dao.E_MypageDAO"%>
+<%@page import="sns.dao.E_MypageDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -19,7 +19,6 @@
 				document.zipForm.area4.focus();
 				return;
 			}
-			alert(document.zipForm.area4.value);
 			document.zipForm.submit();
 		}
 		

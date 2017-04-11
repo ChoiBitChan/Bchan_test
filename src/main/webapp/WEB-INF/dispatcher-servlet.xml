@@ -9,19 +9,22 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	
-	<context:component-scan base-package="test.controller"/>
+	<context:component-scan base-package="sns.controller"/>
 	
 	<bean id="viewResolver"	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
-	<bean id="c_mypageDAO" class="test.dao.C_MypageDAO">
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
+	<bean id="c_mypageDAO" class="sns.dao.C_MypageDAO">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	
-	<bean id="e_mypageDAO" class="test.dao.E_MypageDAO">
+	<bean id="e_mypageDAO" class="sns.dao.E_MypageDAO">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
+	
 	
 </beans>

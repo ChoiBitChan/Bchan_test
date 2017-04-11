@@ -29,7 +29,7 @@
 						${reserveList.userid}
 					</td>
 					<td>
-						${reserveList.teamCount}
+						${reserveList.guestCount}
 					</td>
 					<td>
 						<c:if test="${reserveList.r_state==1}">

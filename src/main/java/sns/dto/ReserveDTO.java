@@ -10,14 +10,14 @@ public class ReserveDTO {
 	private String deposit;
 	private String e_name;
 	private int r_state;
-	private int teamCount;
+	private int guestCount;
 	
 	
-	public int getTeamCount() {
-		return teamCount;
+	public int getGuestCount() {
+		return guestCount;
 	}
-	public void setTeamCount(int teamCount) {
-		this.teamCount = teamCount;
+	public void setGuestCount(int guestCount) {
+		this.guestCount = guestCount;
 	}
 	public int getR_state() {
 		return r_state;
@@ -59,8 +59,8 @@ public class ReserveDTO {
 	@Override
 	public String toString() {
 		return "ReserveDTO [restaurant_number=" + restaurant_number + ", reserve_date=" + reserve_date + ", userid="
-				+ userid + ", deposit=" + deposit + ", e_name=" + e_name + ", r_state=" + r_state + ", teamCount="
-				+ teamCount + "]";
+				+ userid + ", deposit=" + deposit + ", e_name=" + e_name + ", r_state=" + r_state + ", guestCount="
+				+ guestCount + "]";
 	}
 
 }

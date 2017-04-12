@@ -21,6 +21,7 @@
 	예약 현황<br/>
 	<table border="1" id="tbl_reserve">
 		<tr>
+			<td>예약번호</td>
 			<td>예약일자</td>
 			<td>업체명</td>
 			<td>상태창</td>
@@ -29,6 +30,9 @@
 		</tr>
 		<c:forEach var="reserveList" items="${reserveList}">
 				<tr>
+					<td>
+						${reserveList.reserveNumber}
+					</td>
 					<td>
 						<fmt:formatDate value="${reserveList.reserve_date}" var="reserve_date" type="both" pattern="yyyy-MM-dd HH:mm"/>
 						${reserve_date}
@@ -61,7 +65,7 @@
 						<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
 						<c:if test="${reDay.time - toDay.time < 0}">	
 							<c:if test="${reDay.time - toDay.time > -3*(1000*60*60*24)}">
-								<input type="button" value="Write" id="btn_write" onclick="writeForm('${reserveList.restaurant_number}','${reserve_date}')">
+								<input type="button" value="Write" id="btn_write">
 							</c:if>
 						</c:if>
 					</td>
@@ -70,6 +74,12 @@
 	</table>
 	<input type="button" value="더 보기" id="btn_more">
 	
+	<script type="text/javascript">
+		$(document).on('click','#btn_write',function(){
+		
+		})
+	</script>
 	
 </body>
 </html>
+

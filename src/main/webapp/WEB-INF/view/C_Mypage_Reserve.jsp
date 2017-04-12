@@ -50,14 +50,20 @@
 					<td>
 						<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
 						<c:if test="${reserveList.r_state==1 or reserveList.r_state==2}">
-							<input type="button" value="Cancel">
+							<form name="form_cancelReserve">
+								<input type="hidden" value="${reserveList.reserveNumber}" name="reserveNumber">
+								<input type="button" value="Cancel" name="btn_c_reserveCancel">
+							</form>
 						</c:if>
 					</td>
 					<td>
 						<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
 						<c:if test="${reDay.time - toDay.time < 0}">	
 							<c:if test="${reDay.time - toDay.time > -3*(1000*60*60*24)}">
-								<input type="button" value="Write" id="btn_write">
+								<form name="form_writeReview">
+									<input type="hidden" value="${reserveList.reserveNumber}" name="reserveNumber">
+									<input type="button" value="Write" name="btn_write">
+								</form>
 							</c:if>
 						</c:if>
 					</td>
@@ -68,10 +74,12 @@
 	
 	<script type="text/javascript">
 		
-		var url = "test.jsp"
-		
-		$(document).on('click','#btn_write',function(){
+		$(document).on('click','[name="btn_write"]',function(){
+			
+			var reserveNumber = $(this).parents("form").find('[name="reserveNumber"]').val()
+			var url = "C_Mypage_ReviewForm.do?reserveNumber="+reserveNumber
 			window.open(url,"post","toolbar=no ,width=350 ,height=600 ,directories=no,status=yes,scrollbars=yes,menubar=no")
+			
 		})
 	</script>
 	

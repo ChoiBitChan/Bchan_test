@@ -68,7 +68,6 @@
 		
 		alert("후기 등록")
 		
-		var query = $('#reviewForm').serialize()
 		alert(query)
 	})
 	

@@ -56,8 +56,8 @@
 							<input type="hidden" name="restaurant_number" value="${reserveList.restaurant_number}">
 							<input type="hidden" name="userid" value="${reserveList.userid}">
 							<input type="hidden" name="reserve_date" value="${reserve_date}">
-							<input type="button" value="승인" name="btn_reserveOk">
-							<input type="button" value="취소" name="btn_reserveCancel">
+							<input type="button" value="승인" name="btn_e_reserveOk">
+							<input type="button" value="취소" name="btn_e_reserveCancel">
 						</form>
 						
 					</td>
@@ -65,18 +65,6 @@
 			</c:if>
 		</c:forEach>
 	</table>
-	
-	<script type="text/javascript">
-	
-		
-	
-	
-	
-	
-	
-	</script>
-	
-	
 	
 	
 </body>

@@ -53,6 +53,14 @@ public class C_MypageController {
 		return mav;
 	}
 	
+	@RequestMapping("/C_reserveCancel.do")
+	public String reserveCancel(@RequestParam("reserveNumber") String reserveNumber, @RequestParam("end_rno") String end_rno) {
+		System.out.println("reserveCancel");
+		System.out.println(reserveNumber);
+		c_mypageDAO.reserveCancel(reserveNumber);
+		return "redirect:/C_Mypage_Reserve.do?end_rno="+end_rno;
+	}
+	
 	
 	
 	
@@ -93,10 +101,12 @@ public class C_MypageController {
 	}
 	
 	@RequestMapping("/writeForm.do")
-	public ModelAndView writeForm(@RequestParam("restaurant_number") String restaurant_number, @RequestParam("reserve_date") String reserve_date) {
+	public ModelAndView writeForm(@RequestParam("reserveNumber") String reserveNumber) {
+		System.out.println("writeForm");
+		System.out.println(reserveNumber);
 		ModelAndView mav = new ModelAndView("C_Mypage_ReviewForm");
-		mav.addObject("restaurant_number", restaurant_number);
-		mav.addObject("reserve_date", reserve_date);
+		//mav.addObject("restaurant_number", restaurant_number);
+		//mav.addObject("reserve_date", reserve_date);
 		return mav;
 	}
 	

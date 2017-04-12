@@ -26,6 +26,10 @@ public class C_MypageDAO extends SqlSessionDaoSupport {
 		return reserveDTO;
 	}
 	
+	public void reserveCancel(String reserveNumber) {
+		getSqlSession().update("reserve.c_reserveCancel", reserveNumber);
+	}
+	
 	public List<ReviewDTO> getReviewList(String userid) {
 		List<ReviewDTO> reviewDTO = getSqlSession().selectList("review.c_getReview", userid);
 		return reviewDTO;

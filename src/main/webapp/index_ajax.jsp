@@ -129,6 +129,30 @@
 			
 	})
 	
+	$(document).on('click','[name="btn_c_reserveCancel"]',function(){
+		var reserveNumber = $(this).parents("form").find('[name="reserveNumber"]').val()
+		var url = "C_reserveCancel.do"
+		var query = "reserveNumber="+reserveNumber+"&end_rno="+end_rno
+		
+		$.ajax({
+			
+			type:"GET"
+			,url:url
+			,data:query
+			,success:function(data){
+				
+				$('#divBox').html("");
+				$('#divBox').append(data);
+				
+			}
+			,error:function(e){
+				console.log(e.responseText);
+			}
+			
+		})
+		
+	})
+	
 	
 	
 	
@@ -218,7 +242,7 @@
 	})
 	
 	// 업주 예약 승인
-	$(document).on('click','[name="btn_reserveOk"]',function(){
+	$(document).on('click','[name="btn_e_reserveOk"]',function(){
 			
 		var restaurant_number = $(this).parents("form").find('[name="restaurant_number"]').val()
 		var userid = $(this).parents("form").find('[name="userid"]').val()
@@ -248,7 +272,7 @@
 	})
 	
 	// 업주 예약 취소
-	$(document).on('click','[name="btn_reserveCancel"]',function(){
+	$(document).on('click','[name="btn_e_reserveCancel"]',function(){
 			
 		var restaurant_number = $(this).parents("form").find('[name="restaurant_number"]').val()
 		var userid = $(this).parents("form").find('[name="userid"]').val()

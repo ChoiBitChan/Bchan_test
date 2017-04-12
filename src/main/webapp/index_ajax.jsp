@@ -69,6 +69,241 @@
 		
 	})
 	
+	
+	
+	
+	// 고객 마이페이지------------------------------------------------------------------------
+	
+	// 고객 예약현황
+	$(document).on('click','#btn_c_reserve',function(){
+		
+		var url = "C_Mypage_Reserve.do"
+		var query = "test=test"
+		
+		$.ajax({
+			
+			type:"GET"
+			,url:url
+			,data:query
+			,success:function(data){
+				
+				$('#divBox').html("");
+				$('#divBox').append(data);
+				
+			}
+			
+			,error:function(e){
+				console.log(e.responseText);
+			}
+			
+		})
+		
+	})
+	
+	// 예약현황 더 보기
+	
+	var end_rno = 10 + Number(${end_rno})
+	
+	$(document).on('click','#btn_more',function(){
+		end_rno += 10
+		var url = "C_Mypage_Reserve.do"
+		var query = "end_rno="+end_rno
+			
+		$.ajax({
+			
+			type:"GET"
+			,url:url
+			,data:query
+			,success:function(data){
+					
+				$('#divBox').html("");
+				$('#divBox').append(data);
+					
+			}
+			
+			,error:function(e){
+					console.log(e.responseText);
+			}
+				
+		})
+			
+	})
+	
+	// 고객 회원정보
+	$(document).on('click','#btn_c_userInfo',function(){
+		
+		var url = "C_Mypage_UserInfo.do"
+		var query = "test=test"
+		
+		$.ajax({
+			
+			type:"GET"
+			,url:url
+			,data:query
+			,success:function(data){
+				
+				$('#divBox').html("");
+				$('#divBox').append(data);
+				
+			}
+			
+			,error:function(e){
+				console.log(e.responseText);
+			}
+			
+		})
+		
+	})
+	
+	
+	// 고객 후기목록
+	$(document).on('click','#btn_c_review',function(){
+		
+		var url = "C_Mypage_Review.do"
+		var query = "test=test"
+		
+		$.ajax({
+			
+			type:"GET"
+			,url:url
+			,data:query
+			,success:function(data){
+				
+				$('#divBox').html("");
+				$('#divBox').append(data);
+				
+			}
+			
+			,error:function(e){
+				console.log(e.responseText);
+			}
+			
+		})
+		
+	})
+	
+	
+	
+	// 업주 마이페이지------------------------------------------------------------------------
+	
+	
+	
+	// 업주 예약현황
+	$(document).on('click','#btn_e_reserve',function(){
+		
+		var url = "E_Mypage_Reserve.do"
+		var query = "test=test"
+		
+		$.ajax({
+			
+			type:"GET"
+			,url:url
+			,data:query
+			,success:function(data){
+				
+				$('#divBox').html("");
+				$('#divBox').append(data);
+				
+			}
+			
+			,error:function(e){
+				console.log(e.responseText);
+			}
+			
+		})
+		
+	})
+	
+	// 업주 예약 승인
+	$(document).on('click','[name="btn_reserveOk"]',function(){
+			
+		var restaurant_number = $(this).parents("form").find('[name="restaurant_number"]').val()
+		var userid = $(this).parents("form").find('[name="userid"]').val()
+		var reserve_date = $(this).parents("form").find('[name="reserve_date"]').val()
+		
+		var url = "E_reserveOk.do"
+		var query = "restaurant_number="+restaurant_number+"&userid="+userid+"&reserve_date="+reserve_date
+		
+		$.ajax({
+			
+			type:"GET"
+			,url:url
+			,data:query
+			,success:function(data){
+				
+				$('#divBox').html("");
+				$('#divBox').append(data);
+				
+			}
+		
+			,error:function(e){
+				console.log(e.responseText);
+			}
+			
+		})
+		
+	})
+	
+	// 업주 예약 취소
+	$(document).on('click','[name="btn_reserveCancel"]',function(){
+			
+		var restaurant_number = $(this).parents("form").find('[name="restaurant_number"]').val()
+		var userid = $(this).parents("form").find('[name="userid"]').val()
+		var reserve_date = $(this).parents("form").find('[name="reserve_date"]').val()
+		
+		var url = "E_reserveCancel.do"
+		var query = "restaurant_number="+restaurant_number+"&userid="+userid+"&reserve_date="+reserve_date
+		
+		$.ajax({
+			
+			type:"GET"
+			,url:url
+			,data:query
+			,success:function(data){
+				
+				$('#divBox').html("");
+				$('#divBox').append(data);
+				
+			}
+		
+			,error:function(e){
+				console.log(e.responseText);
+			}
+			
+		})
+		
+	})
+	
+	
+	// 업주 정보등록
+	$(document).on('click','#btn_e_userInfo',function(){
+		
+		var url = "E_Mypage_EnterInfo.do"
+		var query = "test=test"
+		
+		$.ajax({
+			
+			type:"GET"
+			,url:url
+			,data:query
+			,success:function(data){
+				
+				$('#divBox').html("");
+				$('#divBox').append(data);
+				
+			}
+			
+			,error:function(e){
+				console.log(e.responseText);
+			}
+			
+		})
+		
+	})
+	
+	
+	
+	
 	</script>
 	
 	

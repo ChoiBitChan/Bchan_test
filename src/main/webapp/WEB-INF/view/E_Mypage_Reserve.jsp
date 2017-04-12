@@ -68,18 +68,7 @@
 	
 	<script type="text/javascript">
 	
-		$('[name="btn_reserveOk"]').on('click',function(){
-			
-			var restaurant_number = document.forms["form_reserveCheck"]["restaurant_number"].value
-			var userid = document.forms["form_reserveCheck"]["userid"].value
-			var reserve_date = document.forms["form_reserveCheck"]["reserve_date"].value
-			
-			var test = restaurant_number +" "+ userid +" "+ reserve_date
-			
-			alert(test)
-			
-			
-		})
+		
 	
 	
 	

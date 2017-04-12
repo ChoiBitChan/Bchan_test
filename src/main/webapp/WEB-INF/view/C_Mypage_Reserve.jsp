@@ -70,39 +70,6 @@
 	</table>
 	<input type="button" value="더 보기" id="btn_more">
 	
-	<script type="text/javascript">
-		
-		var end_rno = ${end_rno}
-	
-		$('#btn_more').on('click',function(){
-			
-			end_rno += 10
-			var url = "C_Mypage_Reserve.do"
-			var query = "end_rno="+end_rno
-			
-			$.ajax({
-			
-				type:"GET"
-				,url:url
-				,data:query
-				,success:function(data){
-					
-					$('#divBox').html("");
-					$('#divBox').append(data);
-					
-				}
-			
-				,error:function(e){
-					console.log(e.responseText);
-				}
-				
-			})
-			
-		})
-		
-	
-	</script>	
-	
 	
 </body>
 </html>

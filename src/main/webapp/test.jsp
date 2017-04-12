@@ -7,7 +7,5 @@
 </head>
 <body>
 
-	${enterDTO}
-
 </body>
 </html>

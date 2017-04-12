@@ -6,14 +6,6 @@
 <head>
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript">
-
-	function writeForm(restaurant_number, reserve_date) {
-		url = "writeForm.do?restaurant_number="+restaurant_number+"&reserve_date="+reserve_date;
-		window.open(url,"post","toolbar=no ,width=350 ,height=600 ,directories=no,status=yes,scrollbars=yes,menubar=no");
-	}
-	
-</script>
 
 </head>
 <body>
@@ -75,8 +67,11 @@
 	<input type="button" value="더 보기" id="btn_more">
 	
 	<script type="text/javascript">
-		$(document).on('click','#btn_write',function(){
 		
+		var url = "test.jsp"
+		
+		$(document).on('click','#btn_write',function(){
+			window.open(url,"post","toolbar=no ,width=350 ,height=600 ,directories=no,status=yes,scrollbars=yes,menubar=no")
 		})
 	</script>
 	

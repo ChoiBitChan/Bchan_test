@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 	<jsp:useBean id="toDay" class="java.util.Date"/>
@@ -72,15 +76,48 @@
 	</table>
 	<input type="button" value="더 보기" id="btn_more">
 	
+	
+	
+
+	  <!-- Modal -->
+	  <div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog">
+	    
+	      <!-- Modal content-->
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4>Review</h4>
+	        </div>
+	        <div class="modal-body" style="padding:40px 50px;">
+	          <form role="form">
+	            <div class="form-group">
+	              <h4>test</h4>
+	              <input type="text" class="form-control" id="test">
+	            </div>
+	            <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>test</button>
+	          </form>
+	        </div>
+	      </div>
+	      
+	    </div>
+	  </div> 
+	
+	
+	
 	<script type="text/javascript">
 		
 		$(document).on('click','[name="btn_write"]',function(){
 			
 			var reserveNumber = $(this).parents("form").find('[name="reserveNumber"]').val()
-			var url = "C_Mypage_ReviewForm.do?reserveNumber="+reserveNumber
-			window.open(url,"post","toolbar=no ,width=350 ,height=600 ,directories=no,status=yes,scrollbars=yes,menubar=no")
+			alert(reserveNumber)
+			//var url = "C_Mypage_ReviewForm.do?reserveNumber="+reserveNumber
+			//window.open(url,"post","toolbar=no ,width=350 ,height=600 ,directories=no,status=yes,scrollbars=yes,menubar=no")
+			
+			$("#myModal").modal();
 			
 		})
+		
 	</script>
 	
 </body>

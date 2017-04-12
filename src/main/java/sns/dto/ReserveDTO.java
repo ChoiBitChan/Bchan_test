@@ -11,8 +11,15 @@ public class ReserveDTO {
 	private String e_name;
 	private int r_state;
 	private int guestCount;
+	private int reserveNumber;
 	
 	
+	public int getReserveNumber() {
+		return reserveNumber;
+	}
+	public void setReserveNumber(int reserveNumber) {
+		this.reserveNumber = reserveNumber;
+	}
 	public int getGuestCount() {
 		return guestCount;
 	}

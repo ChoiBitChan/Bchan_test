@@ -93,9 +93,10 @@ public class C_MypageController {
 	}
 	
 	@RequestMapping("/writeForm.do")
-	public ModelAndView writeForm(@RequestParam("restaurant_number") String restaurant_number) {
+	public ModelAndView writeForm(@RequestParam("restaurant_number") String restaurant_number, @RequestParam("reserve_date") String reserve_date) {
 		ModelAndView mav = new ModelAndView("C_Mypage_ReviewForm");
 		mav.addObject("restaurant_number", restaurant_number);
+		mav.addObject("reserve_date", reserve_date);
 		return mav;
 	}
 	

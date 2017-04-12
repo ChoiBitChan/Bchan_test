@@ -8,8 +8,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-	function writeForm(restaurant_number) {
-		url = "writeForm.do?restaurant_number="+restaurant_number;
+	function writeForm(restaurant_number, reserve_date) {
+		url = "writeForm.do?restaurant_number="+restaurant_number+"&reserve_date="+reserve_date;
 		window.open(url,"post","toolbar=no ,width=350 ,height=600 ,directories=no,status=yes,scrollbars=yes,menubar=no");
 	}
 	
@@ -61,7 +61,7 @@
 						<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
 						<c:if test="${reDay.time - toDay.time < 0}">	
 							<c:if test="${reDay.time - toDay.time > -3*(1000*60*60*24)}">
-								<input type="button" value="Write" id="btn_write" onclick="writeForm('${reserveList.restaurant_number}')">
+								<input type="button" value="Write" id="btn_write" onclick="writeForm('${reserveList.restaurant_number}','${reserve_date}')">
 							</c:if>
 						</c:if>
 					</td>

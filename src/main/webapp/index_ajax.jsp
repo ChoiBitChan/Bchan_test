@@ -129,6 +129,9 @@
 			
 	})
 	
+	
+	
+	
 	// 고객 회원정보
 	$(document).on('click','#btn_c_userInfo',function(){
 		

@@ -100,14 +100,20 @@ public class C_MypageController {
 		return mav;
 	}
 	
-	@RequestMapping("/writeForm.do")
-	public ModelAndView writeForm(@RequestParam("reserveNumber") String reserveNumber) {
-		System.out.println("writeForm");
-		System.out.println(reserveNumber);
-		ModelAndView mav = new ModelAndView("C_Mypage_ReviewForm");
-		//mav.addObject("restaurant_number", restaurant_number);
-		//mav.addObject("reserve_date", reserve_date);
-		return mav;
+	@RequestMapping("/C_Review_Submit.do")
+	public void review_submit(@RequestParam("reviewDTO") ReviewDTO reviewDTO, @RequestParam("reserveNumber") int reserveNumber) {
+		System.out.println("review_submit");
+		ReserveDTO reserveDTO = c_mypageDAO.getNum_Date(reserveNumber);
+		//System.out.println(reserveDTO.getRestaurant_number());
+		//System.out.println(reserveDTO.getReserve_date());
+		//System.out.println(reviewDTO.getComments());
+		//System.out.println(reviewDTO.getRanking());
+		
+		reviewDTO.setRestaurant_number(reserveDTO.getRestaurant_number());
+		reviewDTO.setReserve_date(reserveDTO.getReserve_date());
+		reviewDTO.setUserid("a");
+		c_mypageDAO.writeReview(reviewDTO);
+		
 	}
 	
 	@RequestMapping("/C_Review_Delete.do")

@@ -69,7 +69,7 @@ public class E_MypageDAO extends SqlSessionDaoSupport {
 			e.printStackTrace();
 		}
 		FileInfoDTO f = new FileInfoDTO(image.getOriginalFilename(), new_file.getPath(), image.getSize());
-		getSqlSession().insert("file.addFile", f);
+		getSqlSession().insert("upload.restaurant_image", f);
 	}
 
 }

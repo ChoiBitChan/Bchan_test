@@ -5,10 +5,10 @@
 <html>
 <head>
 <title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script>
@@ -114,18 +114,26 @@
 	      <div class="modal-content">
 	        <div class="modal-header">
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h4>Review</h4>
+	          <h4>후기 작성</h4>
 	        </div>
 	        <div class="modal-body" style="padding:40px 50px;">
-	          <form role="form" id="writeForm" method="post" action="" enctype="multipart/form-data">
+	          <form role="form" id="writeForm" method="post" enctype="multipart/form-data">
 	            <div class="form-group">
-	              <h4>이미지</h4>
-	              <div id="review_view"></div>
-	              <input type="file" class="form-control" id="review_image" onclick="imageView('review_image','review_view')">
-	              <br/>
-	              <input type="hidden" id="rntext" value="">
+	            	<input type="hidden" id="rntext" name="reserveNumber" value="">
+	              	<h4>이미지</h4>
+	              	<div id="review_view"></div>
+	              	<br/>
+	              	<input type="file" class="form-control" id="review_image" name="review_image" onclick="imageViewer('review_image','review_view')">
+	              	<br/>
+	              	<textarea class="form-control" rows="5" name="comments"></textarea>
+	              	<br/>
+	              	<c:forEach var="i" begin="1" end="5" step="1">
+	              		<label class="radio-inline">
+      						<input type="radio" value="${i}" name="ranking"><c:out value="${i}"/>
+    					</label>
+    				</c:forEach>
 	            </div>
-	            <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>test</button>
+	            <button type="button" class="btn btn-success btn-block" id="btn_reviewSubmit">작성 완료</button>
 	          </form>
 	        </div>
 	      </div>
@@ -143,6 +151,28 @@
 			$('#rntext').val(reserveNumber)
 			$("#myModal").modal();
 			
+		})
+		
+		$(document).on('click', '#btn_reviewSubmit', function(){
+			
+			//var formData = new FormData($('#review_image'))
+			var params = $('#writeForm').serialize()
+			
+			var url = "C_Review_Submit.do"
+			
+			$.ajax({
+				type:"POST"
+				,url:url
+				,data:params
+				,success:function(data){
+					
+					
+					
+				}
+				,error:function(e){
+					console.log(e.responseText)
+				}
+			})
 		})
 		
 	</script>

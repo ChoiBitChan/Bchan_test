@@ -9,6 +9,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from ( select A.E_name, B.write_date, B.ranking, B.comments, B.userid from restaurant A, review B where A.RESTAURANT_NUMBER = B.RESTAURANT_NUMBER ) V where V.userid = #{userid} order by write_Date desc
 	</select>
 	
+	<insert id="c_writeReview" parameterType="sns.dto.ReviewDTO">
+		insert into review values(#{restaurant_number}, default, #{reserve_date}, #{userid}, #{comments}, #{ranking})
+	</insert>	
+	
 	<delete id="c_deleteReview" parameterType="sns.dto.ReviewDTO">
 		delete from review where userid = #{userid} and comments = #{comments} and write_date = #{write_date}
 	</delete>

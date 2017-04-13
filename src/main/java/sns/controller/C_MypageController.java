@@ -120,6 +120,7 @@ public class C_MypageController {
 		String path = c_mypageDAO.upload(reviewDTO);
 		
 		reviewDTO.setReview_filePath(path);
+		c_mypageDAO.writeReview(reviewDTO);
 		
 		return "test";
 		

@@ -1,13 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-</head>
-<body>
+
 	
 	<jsp:useBean id="toDay" class="java.util.Date"/>
 	예약 현황<br/>
@@ -65,7 +59,3 @@
 			</c:if>
 		</c:forEach>
 	</table>
-	
-	
-</body>
-</html>

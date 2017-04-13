@@ -1,15 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Insert title here</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 <script>
 
@@ -38,8 +31,7 @@
 	
 </script>
 
-</head>
-<body>
+
 	<jsp:useBean id="toDay" class="java.util.Date"/>
 	예약 현황<br/>
 	<table border="1" id="tbl_reserve">
@@ -177,6 +169,5 @@
 		
 	</script>
 	
-</body>
-</html>
+
 

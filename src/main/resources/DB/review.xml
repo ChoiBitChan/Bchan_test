@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="c_writeReview" parameterType="sns.dto.ReviewDTO">
-		insert into review values(#{restaurant_number}, default, #{reserve_date}, #{userid}, #{comments}, #{ranking})
+		insert into review values(#{restaurant_number}, default, #{reserve_date}, #{userid}, #{comments}, #{ranking}, #{review_filePath})
 	</insert>	
 	
 	<delete id="c_deleteReview" parameterType="sns.dto.ReviewDTO">

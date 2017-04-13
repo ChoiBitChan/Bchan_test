@@ -13,9 +13,16 @@ public class ReviewDTO {
 	private int ranking;
 	private String userid;
 	private String e_name;
+	private String review_filePath;
 	private MultipartFile review_image;
 	
 	
+	public String getReview_filePath() {
+		return review_filePath;
+	}
+	public void setReview_filePath(String review_filePath) {
+		this.review_filePath = review_filePath;
+	}
 	public MultipartFile getReview_image() {
 		return review_image;
 	}

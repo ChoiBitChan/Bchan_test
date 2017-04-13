@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 
 <script>
 
@@ -38,8 +34,7 @@
 
 </script>
 
-</head>
-<body>
+
 	업체정보 페이지<br/>
 	
 	<form name="enterInfo" id="enterInfo" action="E_insertInfo.do" method="post" enctype="multipart/form-data">
@@ -94,5 +89,3 @@
 	</form>
 	
 	
-</body>
-</html>

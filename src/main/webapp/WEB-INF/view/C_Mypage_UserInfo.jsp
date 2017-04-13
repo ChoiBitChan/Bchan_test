@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-</head>
-<body>
+
 	정보수정 페이지<br/>
 	
 	<c:set var="userInfo" value="${userInfo}"/>
@@ -53,5 +47,3 @@
     
     </script>
 	
-</body>
-</html>

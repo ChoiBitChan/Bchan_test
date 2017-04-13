@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into restaurant_imagesave values (#{originalFilename},#{filePath},#{fileSize})
 	</insert>	
 	
-	<insert id="review_image" parameterType="sns.dto.FileInfoDTO">
-		
+	<insert id="review_image" parameterType="sns.dto.ReviewImageDTO">
+		insert into review_imagesave values (#{originalFilename}, #{filePath}, #{fileSize}, #{restaurant_number}, #{userid}, default)
 	</insert>
 </mapper>

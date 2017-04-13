@@ -10,9 +10,9 @@ import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.web.multipart.MultipartFile;
 
 import sns.dto.CustomerDTO;
-import sns.dto.FileInfoDTO;
 import sns.dto.ReserveDTO;
 import sns.dto.ReviewDTO;
+import sns.dto.ReviewImageDTO;
 
 public class C_MypageDAO extends SqlSessionDaoSupport {
 	
@@ -57,22 +57,30 @@ public class C_MypageDAO extends SqlSessionDaoSupport {
 		getSqlSession().update("userInfo.modifyInfo", userInfo);
 	}
 	
-	public void upload(MultipartFile image, String userid) {
+	public String upload(ReviewDTO reviewDTO) {
 		System.out.println("upload");
 		long now = System.currentTimeMillis();
-		Random r = new Random();
-		int i = r.nextInt(50);
-		String name = userid + "_" + now + "_" + i;
-		String ori_name = image.getOriginalFilename();
-		File new_file = new File("f://E_image//" + name + "_" + ori_name);
+		String name = reviewDTO.getUserid();
+		String ori_name = reviewDTO.getReview_image().getOriginalFilename();
+		
+		String path = "f://Review_image//" + now + "_" + name + "_" + ori_name;
+		File new_file = new File(path);
 		System.out.println(new_file);
 		try {
-			image.transferTo(new_file);
+			reviewDTO.getReview_image().transferTo(new_file);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		FileInfoDTO f = new FileInfoDTO(image.getOriginalFilename(), new_file.getPath(), image.getSize());
-		getSqlSession().insert("file.addFile", f);
+		ReviewImageDTO imageDTO = new ReviewImageDTO();
+		imageDTO.setOriginalFilename(reviewDTO.getReview_image().getOriginalFilename());
+		imageDTO.setFilePath(new_file.getPath());
+		imageDTO.setFileSize(reviewDTO.getReview_image().getSize());
+		imageDTO.setRestaurant_number(reviewDTO.getRestaurant_number());
+		imageDTO.setUserid(reviewDTO.getUserid());
+		
+		getSqlSession().insert("upload.review_image", imageDTO);
+		
+		return path;
 	}
 
 }

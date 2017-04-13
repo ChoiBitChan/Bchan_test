@@ -14,8 +14,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.sf.json.JSONObject;
 import sns.dao.C_MypageDAO;
 import sns.dto.CustomerDTO;
 import sns.dto.ReserveDTO;
@@ -101,18 +103,25 @@ public class C_MypageController {
 	}
 	
 	@RequestMapping("/C_Review_Submit.do")
-	public void review_submit(@RequestParam("reviewDTO") ReviewDTO reviewDTO, @RequestParam("reserveNumber") int reserveNumber) {
+	public String review_submit(ReviewDTO reviewDTO, @RequestParam("reserveNumber") int reserveNumber) {
 		System.out.println("review_submit");
+		System.out.println("파일 이름 : "+reviewDTO.getReview_image().getOriginalFilename());
+		System.out.println("예약번호 : "+reserveNumber);
+		System.out.println("코멘트 : "+reviewDTO.getComments());
+		System.out.println("평점 : "+reviewDTO.getRanking());
+		
+		// 사업자 등록번호와 예약날짜 가져오기
 		ReserveDTO reserveDTO = c_mypageDAO.getNum_Date(reserveNumber);
-		//System.out.println(reserveDTO.getRestaurant_number());
-		//System.out.println(reserveDTO.getReserve_date());
-		//System.out.println(reviewDTO.getComments());
-		//System.out.println(reviewDTO.getRanking());
 		
 		reviewDTO.setRestaurant_number(reserveDTO.getRestaurant_number());
 		reviewDTO.setReserve_date(reserveDTO.getReserve_date());
 		reviewDTO.setUserid("a");
-		c_mypageDAO.writeReview(reviewDTO);
+		
+		String path = c_mypageDAO.upload(reviewDTO);
+		
+		reviewDTO.setReview_filePath(path);
+		
+		return "test";
 		
 	}
 	

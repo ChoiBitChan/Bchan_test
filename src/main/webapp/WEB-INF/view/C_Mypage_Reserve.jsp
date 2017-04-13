@@ -141,32 +141,38 @@
 			var reserveNumber = $(this).parents("form").find('[name="reserveNumber"]').val()
 			
 			$('#rntext').val(reserveNumber)
-			$("#myModal").modal();
+			$("#myModal").modal({backdrop: "static"});
 			
 		})
 		
-		$(document).on('click', '#btn_reviewSubmit', function(){
+		$(document).on('click','#btn_reviewSubmit',function(){
 			
-			//var formData = new FormData($('#review_image'))
-			var params = $('#writeForm').serialize()
+			var formData = new FormData()
+			
+			formData.append("reserveNumber", $('#rntext').val())
+			formData.append("review_image", $("input[name=review_image]")[0].files[0])
+			formData.append("comments", $("textarea[name=comments]").val());
+			formData.append("ranking", $("input[name=ranking]").val())
 			
 			var url = "C_Review_Submit.do"
 			
 			$.ajax({
 				type:"POST"
-				,url:url
-				,data:params
-				,success:function(data){
-					
-					
+		       	,url:url
+		       	,data:formData
+		        ,processData: false
+		        ,contentType: false
+		        ,success:function(){
+		        	
+		        	$("#myModal").modal("hide");
 					
 				}
 				,error:function(e){
 					console.log(e.responseText)
-				}
+				}	
 			})
+			
 		})
-		
 	</script>
 	
 

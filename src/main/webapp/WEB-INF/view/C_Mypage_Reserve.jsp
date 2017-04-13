@@ -11,6 +11,33 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<script>
+
+	function imageViewer(id, viewer) {
+		
+		var upload = document.getElementById(id)
+		var viewDiv = document.getElementById(viewer)
+		
+		upload.onchange = function(e) {
+			e.preventDefault();
+			
+			var file = upload.files[0], reader = new FileReader();
+			reader.onload = function(event) {
+				var img = new Image();
+				img.src = event.target.result;
+				img.width = 300;
+				viewDiv.innerHTML = '';
+				viewDiv.appendChild(img);
+			};
+			reader.readAsDataURL(file);
+	
+			return false;
+		};
+		
+	}
+	
+</script>
+
 </head>
 <body>
 	<jsp:useBean id="toDay" class="java.util.Date"/>
@@ -90,10 +117,13 @@
 	          <h4>Review</h4>
 	        </div>
 	        <div class="modal-body" style="padding:40px 50px;">
-	          <form role="form">
+	          <form role="form" id="writeForm" method="post" action="" enctype="multipart/form-data">
 	            <div class="form-group">
-	              <h4>test</h4>
-	              <input type="text" class="form-control" id="test">
+	              <h4>이미지</h4>
+	              <div id="review_view"></div>
+	              <input type="file" class="form-control" id="review_image" onclick="imageView('review_image','review_view')">
+	              <br/>
+	              <input type="hidden" id="rntext" value="">
 	            </div>
 	            <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>test</button>
 	          </form>
@@ -104,16 +134,13 @@
 	  </div> 
 	
 	
-	
 	<script type="text/javascript">
 		
 		$(document).on('click','[name="btn_write"]',function(){
 			
 			var reserveNumber = $(this).parents("form").find('[name="reserveNumber"]').val()
-			alert(reserveNumber)
-			//var url = "C_Mypage_ReviewForm.do?reserveNumber="+reserveNumber
-			//window.open(url,"post","toolbar=no ,width=350 ,height=600 ,directories=no,status=yes,scrollbars=yes,menubar=no")
 			
+			$('#rntext').val(reserveNumber)
 			$("#myModal").modal();
 			
 		})

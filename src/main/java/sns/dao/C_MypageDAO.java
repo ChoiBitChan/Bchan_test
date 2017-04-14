@@ -63,7 +63,7 @@ public class C_MypageDAO extends SqlSessionDaoSupport {
 		String name = reviewDTO.getUserid();
 		String ori_name = reviewDTO.getReview_image().getOriginalFilename();
 		
-		String path = "d://Review_image//" + now + "_" + name + "_" + ori_name;
+		String path = "c://Review_image//" + now + "_" + name + "_" + ori_name;
 		File new_file = new File(path);
 		System.out.println(new_file);
 		try {
